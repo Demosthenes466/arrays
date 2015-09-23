@@ -133,6 +133,15 @@ module Arrays
 		return array
 	end
 
+	def max_span(array)
+		array_string = array.join()
+		split_array = array_string.split(//)
+		no_line_array = split_array.join()
+		length = no_line_array.length
+		span = length - 1
+		return span
+	end
+
 				
 	
 end
