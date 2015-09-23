@@ -87,7 +87,6 @@ module Arrays
 		word_array = word.split(//)
 		token_array = token.split(//)
 		for j in (1..token.length-1) do
-			puts !word_array.include?(token_array[j])
 			if( !word_array.include?(token_array[j]) )
 				length = word_array.length
 				new_array = Array.new(length)
@@ -98,10 +97,8 @@ module Arrays
 		end
 		for i in (0..word.length-token.length) do
 			if(word_array[i..(i+token.length)] != token_array)
-				puts"this"
 				word_array.delete_at(i)
 				word_array.insert(i, '+')
-				puts word_array
 			end
 		end
 		final = word_array.join
@@ -121,5 +118,21 @@ module Arrays
 			zero_array[i] = 0
 		end
 	end
+
+	def ten_run(array)
+		occurences = 0
+		for i in (0..array.length-1) do
+			if((array[i].to_i % 10 == 0))
+				occurences += 1
+				array[i] = array[i].to_i * occurences
+			end
+			if((array[i-1].to_i % 10 == 0))
+				array[i] = 10 * occurences
+			end
+		end
+		return array
+	end
+
+				
 	
 end
